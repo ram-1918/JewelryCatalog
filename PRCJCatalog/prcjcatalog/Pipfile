@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 decouple = "*"
 django-oscar = "*"
 djangorestframework = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

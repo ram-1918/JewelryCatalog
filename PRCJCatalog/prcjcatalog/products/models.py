@@ -44,7 +44,7 @@ class GoldPrice(models.Model):
         verbose_name_plural = 'GoldPrice'
 
 class Price(models.Model):
-    product = models.OneToOneField(Products, related_name='price', on_delete=models.CASCADE)
+    product = models.ForeignKey(Products, related_name='price', on_delete=models.CASCADE)
     gold_price = models.ForeignKey(GoldPrice, related_name= "price", on_delete = models.CASCADE)
 
     # "get_product_price" returns calculated total price of product

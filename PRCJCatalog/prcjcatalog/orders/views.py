@@ -7,12 +7,16 @@ from rest_framework import generics, permissions, status
 
 # Create your views here.
 
+# How to use _set, select_related, prefetch_related
+
 def practice(request):
+    print("Orders Test")
     orders = Orders.objects.all()
-    print(orders[0].get_cart_total)
-    print(orders[0].no_of_items_in_cart)
     for i in orders:
-        print(i.users.name, i.status)
+        print(i.pk, i.get_cart_total, i.no_of_items_in_cart)
+    print('-------')
+    for i in OrderItem.objects.all():
+        print(i.order.pk, i.product.product.name, i.get_total_per_quantity)
     return HttpResponse({'values': orders})
 
 # Order View - Create, retrieve, update, Destroy
